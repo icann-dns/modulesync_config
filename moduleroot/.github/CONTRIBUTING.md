@@ -1,27 +1,20 @@
-This module has grown over time based on a range of contributions from
-people using it. If you follow these contributing guidelines your patch
-will likely make it into a release a little quicker.
-
-
 ## Contributing
-
-Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms. [Contributor Code of Conduct](https://voxpupuli.org/coc/).
 
 1. Fork the repo.
 
-1. Create a separate branch for your change.
+2. Create a separate branch for your change.
 
-1. Run the tests. We only take pull requests with passing tests, and
+3. Run the tests. We only take pull requests with passing tests, and
    documentation.
 
-1. Add a test for your change. Only refactoring and documentation
+4. Add a test for your change. Only refactoring and documentation
    changes require no new tests. If you are adding functionality
    or fixing a bug, please add a test.
 
-1. Squash your commits down into logical components. Make sure to rebase
+5. Squash your commits down into logical components. Make sure to rebase
    against the current master.
 
-1. Push the branch to your fork and submit a pull request.
+6. Push the branch to your fork and submit a pull request.
 
 Please be prepared to repeat some of these steps as our contributors review
 your code.

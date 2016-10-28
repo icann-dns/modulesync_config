@@ -12,6 +12,7 @@ log/
 .idea/
 *.iml
 .*.sw
+*.sw?
 <% if ! @configs['paths'].nil? -%>
 <% @configs['paths'].each do |path| -%>
 <%= path %>

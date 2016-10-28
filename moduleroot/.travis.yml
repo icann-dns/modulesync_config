@@ -2,7 +2,7 @@
 sudo: false
 language: ruby
 cache: bundler
-bundler_args: --without system_tests development
+bundler_args: --without development
 <%- if !@configs.nil? and @configs.has_key?('addons') -%>
 addons:
   <%- if @configs['addons'].has_key?('apt') -%>
@@ -36,6 +36,10 @@ matrix:
 <% @configs['includes'].each do |include| -%>
   - rvm: <%= include['rvm'] %>
     env: <%= include['env'] %>
+<%- if include.includes?('docker') -%>
+    services:
+    - docker
+<%- end -%>
 <% end -%>
 <% if @configs['extras'] -%>
 <%   @configs['extras'].each do |extra| -%>
@@ -55,7 +59,7 @@ deploy:
   provider: puppetforge
   deploy:
     branch: ha-bug-puppet-forge
-  user: puppet
+  user: icann
   password:
     secure: "<%= @configs['secure'] -%>"
   on:

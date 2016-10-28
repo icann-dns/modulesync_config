@@ -1,4 +1,12 @@
 ---
+- puppet-dns
+- puppet-samanage
+- puppet-portshaker
+- puppet-logstash_forwader
+- puppet-tea
+- puppet-grub
+- puppet-file_upload
+- puppet-ditl
 - puppet-ansible
 ...
 # vim: syntax=yaml

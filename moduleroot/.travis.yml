@@ -2,7 +2,7 @@
 sudo: false
 language: ruby
 cache: bundler
-bundler_args: --without development
+bundler_args: --without <%- unless @configs.fetch('install_system_tests', false ) -%>system_tests <%- end -%>development
 <%- if !@configs.nil? and @configs.has_key?('addons') -%>
 addons:
   <%- if @configs['addons'].has_key?('apt') -%>
@@ -36,15 +36,23 @@ matrix:
 <% @configs['includes'].each do |include| -%>
   - rvm: <%= include['rvm'] %>
     env: <%= include['env'] %>
-<%- if include.includes?('docker') -%>
+  <%- if include.has_key?('services') -%>
     services:
-    - docker
-<%- end -%>
+    <%- include['services'].each do |service| -%>
+    - <%= service %>
+    <%- end -%>
+  <%- end -%>
 <% end -%>
 <% if @configs['extras'] -%>
 <%   @configs['extras'].each do |extra| -%>
   - rvm: <%= extra['rvm'] %>
     env: <%= extra['env'] %>
+  <%- if extra.has_key?('services') -%>
+    services:
+    <%- extra['services'].each do |service| -%>
+    - <%= service %>
+    <%- end -%>
+  <%- end -%>
 <%   end -%>
 <% end -%>
 <% if @configs['allow_failures'] -%>

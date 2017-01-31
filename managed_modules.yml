@@ -1,4 +1,5 @@
 ---
+- puppet-dsc
 - puppet-nsd
 - puppet-nexpose
 - puppet-dns

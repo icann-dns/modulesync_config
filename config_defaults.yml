@@ -3,25 +3,23 @@
   includes:
   - rvm: 2.1.9
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.2.5
+  - rvm: 2.2.6
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.3.1
-    env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
-  - rvm: 2.3.1
+  - rvm: 2.3.3
+    env: PUPPET_VERSION="~> 4.0" CHECK=test
+  - rvm: 2.4.0
+    env: PUPPET_VERSION="~> 4.0" CHECK=test
+  - rvm: 2.4.0
     env: PUPPET_VERSION="~> 4.0" CHECK=rubocop
-  - rvm: 2.3.1
-    env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.4.0-preview1
-    env: PUPPET_VERSION="~> 4.0" CHECK=test
-  allow_failures:
-    - rvm: 2.4.0-preview1
+  - rvm: 2.4.0
+    env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
 Gemfile:
   required:
     ':test':
       - gem: puppetlabs_spec_helper
         version: '~> 1.2.2'
       - gem: rspec-puppet
-        git: https://github.com/rodjek/rspec-puppet.git
+        version: '~> 2.5'
       - gem: rspec-puppet-facts
       - gem: rspec-puppet-utils
       - gem: puppet-lint-absolute_classname-check
@@ -37,19 +35,35 @@ Gemfile:
       - gem: voxpupuli-release
         git: https://github.com/voxpupuli/voxpupuli-release-gem.git
       - gem: puppet-strings
-        version: '0.4.0'
-      - gem: rubocop-rspec
-        version: '~> 1.6'
+        version: '~> 1.0.0'
+      - gem: redcarpet
+      - gem: rubocop
+        version: '~> 0.47.0'
         ruby-operator: '>='
         ruby-version: '2.3.0'
-      - gem: json_pure
-        version: '<= 2.0.1'
+      - gem: rubocop-rspec
+        version: '~> 1.10.0'
+        ruby-operator: '>='
+        ruby-version: '2.3.0'
+      - gem: mocha
+        version: '>= 1.2.1'
+      - gem: coveralls
+      - gem: simplecov-console
+      - gem: github_changelog_generator
+        version: '~> 1.13.0'
         ruby-operator: '<'
-        ruby-version: '2.0.0'
+        ruby-version: '2.2.2'
       - gem: listen
         version: '<= 3.0.6'
         ruby-operator: '<'
         ruby-version: '2.2.5'
+      - gem: rack
+        version: '~> 1.0'
+        ruby-operator: '<'
+        ruby-version: '2.2.2'
+      - gem: github_changelog_generator
+        ruby-operator: '>='
+        ruby-version: '2.2.2'
     ':development':
       - gem: travis
       - gem: travis-lint
@@ -60,6 +74,7 @@ Gemfile:
         ruby-operator: '<'
         ruby-version: '2.2.5'
       - gem: beaker-rspec
+      - gem: serverspec
       - gem: beaker-puppet_install_helper
         require: false
 Rakefile:

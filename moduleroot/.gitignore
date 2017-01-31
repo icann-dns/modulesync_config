@@ -10,9 +10,13 @@ spec/fixtures/modules/
 coverage/
 log/
 .idea/
+.dependencies/
+.librarian/
+Puppetfile.lock
 *.iml
-.*.sw
 *.sw?
+.*.sw?
+.yardoc/
 <% if ! @configs['paths'].nil? -%>
 <% @configs['paths'].each do |path| -%>
 <%= path %>

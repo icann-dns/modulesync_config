@@ -1,4 +1,6 @@
 ---
+- puppet-nsd
+- puppet-nexpose
 - puppet-dns
 - puppet-samanage
 - puppet-portshaker

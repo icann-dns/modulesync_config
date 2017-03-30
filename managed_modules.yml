@@ -1,6 +1,7 @@
 ---
-- puppet-dsc
+- puppet-knot
 - puppet-nsd
+- puppet-dsc
 - puppet-nexpose
 - puppet-dns
 - puppet-samanage

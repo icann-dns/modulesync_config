@@ -17,7 +17,7 @@ Gemfile:
   required:
     ':test':
       - gem: puppetlabs_spec_helper
-        version: '~> 1.2.2'
+        version: '~> 2.1.1'
       - gem: rspec-puppet
         version: '~> 2.5'
       - gem: rspec-puppet-facts
@@ -37,12 +37,13 @@ Gemfile:
       - gem: puppet-strings
         version: '~> 1.0.0'
       - gem: redcarpet
+      - gem: gettext-setup
       - gem: rubocop
-        version: '~> 0.47.0'
+        version: '~> 0.48.0'
         ruby-operator: '>='
         ruby-version: '2.3.0'
       - gem: rubocop-rspec
-        version: '~> 1.10.0'
+        version: '~> 1.15.0'
         ruby-operator: '>='
         ruby-version: '2.3.0'
       - gem: mocha
@@ -77,6 +78,9 @@ Gemfile:
       - gem: serverspec
       - gem: beaker-puppet_install_helper
         require: false
+      - gem: beaker-testmode_switcher
+      - gem: beaker-pe
+      - gem: beaker-answers
 Rakefile:
   default_disabled_lint_checks:
   - 'relative'

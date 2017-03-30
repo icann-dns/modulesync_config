@@ -65,10 +65,6 @@ matrix:
     - rvm: <%= allow_failures['rvm'] %>
 <%   end -%>
 <% end -%>
-branches:
-  only:
-  - master
-  - /^v\d/
 notifications:
   email: false
 deploy:

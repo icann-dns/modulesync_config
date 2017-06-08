@@ -1,4 +1,6 @@
 ---
+- puppet-softhsm
+- puppet-opendnssec
 - puppet-knot
 - puppet-nsd
 - puppet-dsc

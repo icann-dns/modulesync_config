@@ -1,18 +1,33 @@
 ---
 .travis.yml:
+  docker_sets:
+  docker_defaults:
+    # values will replace @@SET@@ with the docker_sets' value
+    rvm: 2.1.9
+    sudo: required
+    dist: trusty
+    services: docker
+    env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=@@SET@@ CHECK=beaker
+    bundler_args: --without development
   includes:
   - rvm: 2.1.9
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.2.6
+    bundler_args: --without system_tests development
+  - rvm: 2.2.7
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.3.3
+    bundler_args: --without system_tests development
+  - rvm: 2.3.4
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.4.0
+    bundler_args: --without system_tests development
+  - rvm: 2.4.1
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.4.0
+    bundler_args: --without system_tests development
+  - rvm: 2.4.1
     env: PUPPET_VERSION="~> 4.0" CHECK=rubocop
-  - rvm: 2.4.0
+    bundler_args: --without system_tests development
+  - rvm: 2.4.1
     env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
+    bundler_args: --without system_tests development
 Gemfile:
   required:
     ':test':
@@ -33,9 +48,9 @@ Gemfile:
       - gem: puppet-blacksmith
       - gem: pry
       - gem: voxpupuli-release
-        git: https://github.com/voxpupuli/voxpupuli-release-gem.git
+        git: https://github.com/voxpupuli/voxpupuli-release-gem
       - gem: puppet-strings
-        version: '~> 1.0.0'
+        version: '~> 1.0'
       - gem: redcarpet
       - gem: gettext-setup
       - gem: rubocop
@@ -65,10 +80,13 @@ Gemfile:
       - gem: github_changelog_generator
         ruby-operator: '>='
         ruby-version: '2.2.2'
+      - gem: parallel_tests
     ':development':
       - gem: travis
       - gem: travis-lint
       - gem: guard-rake
+      - gem: overcommit
+        version: '~> 0.39.1'
     ':system_tests':
       - gem: beaker
         version: '<= 2.51.0'

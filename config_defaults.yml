@@ -89,6 +89,7 @@ Gemfile:
       - gem: overcommit
         version: '~> 0.39.1'
     ':system_tests':
+      - gem: scooter
       - gem: beaker
         version: '<= 2.51.0'
         ruby-operator: '<'

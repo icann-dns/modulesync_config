@@ -1,33 +1,32 @@
 ---
 .travis.yml:
+  rvm:
+  - 2.2
+  - 2.3
+  - 2.4
+  env:
+  - CHECK=rubocop
+  - PUPPET_VERSION="~> 4.6.0" STRICT_VARIABLES=yes CHECK=test
+  - PUPPET_VERSION="~> 4.7.0" STRICT_VARIABLES=yes CHECK=test
+  - PUPPET_VERSION="~> 4.8.0" STRICT_VARIABLES=yes CHECK=test
+  - PUPPET_VERSION="~> 4.9.0" STRICT_VARIABLES=yes CHECK=test
+  - PUPPET_VERSION="~> 4.10.0" STRICT_VARIABLES=yes CHECK=test
+  - PUPPET_VERSION="~> 5.0.0" STRICT_VARIABLES=yes CHECK=test
+  excludes:
+  - rvm: 2.2
+    env: CHECK=rubocop
+  extras:
+  - rvm: 2.4.0
+    env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
   docker_sets:
   docker_defaults:
     # values will replace @@SET@@ with the docker_sets' value
-    rvm: 2.1.9
+    rvm: 2.3
     sudo: required
     dist: trusty
     services: docker
-    env: PUPPET_INSTALL_TYPE=agent BEAKER_debug=true BEAKER_set=@@SET@@ CHECK=beaker
+    env: BEAKER_TESTMODE=@@TESTMODE@@ BEAKER_set=@@SET@@ CHECK=beaker
     bundler_args: --without development
-  includes:
-  - rvm: 2.1.9
-    env: PUPPET_VERSION="~> 4.0" CHECK=test
-    bundler_args: --without system_tests development
-  - rvm: 2.2.7
-    env: PUPPET_VERSION="~> 4.0" CHECK=test
-    bundler_args: --without system_tests development
-  - rvm: 2.3.4
-    env: PUPPET_VERSION="~> 4.0" CHECK=test
-    bundler_args: --without system_tests development
-  - rvm: 2.4.1
-    env: PUPPET_VERSION="~> 4.0" CHECK=test
-    bundler_args: --without system_tests development
-  - rvm: 2.4.1
-    env: PUPPET_VERSION="~> 4.0" CHECK=rubocop
-    bundler_args: --without system_tests development
-  - rvm: 2.4.1
-    env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
-    bundler_args: --without system_tests development
 Gemfile:
   required:
     ':test':
@@ -54,6 +53,9 @@ Gemfile:
         version: '~> 1.0'
       - gem: redcarpet
       - gem: gettext-setup
+      - gem: xmlrpc
+        ruby-operator: '>='
+        ruby-version: '2.4.0'
       - gem: rubocop
         version: '~> 0.48.0'
         ruby-operator: '>='
@@ -89,7 +91,6 @@ Gemfile:
       - gem: overcommit
         version: '~> 0.39.1'
     ':system_tests':
-      - gem: scooter
       - gem: beaker
         version: '<= 2.51.0'
         ruby-operator: '<'

@@ -31,8 +31,24 @@ before_install:
   - bundle -v
 script:
   - 'bundle exec rake $CHECK'
+<% if @configs.has_key?('env') -%>
+env: <%= @configs['env'] %>
+<% end -%>
+<% if @configs.has_key?('rvm') -%>
+rvm: <%= @configs['rvm'] %>
+<% end -%>
 matrix:
   fast_finish: true
+<% if @configs.has_key?('excludes') -%> 
+  exclude:
+<%   @configs['excludes'].each do |exclude| -%>
+  - rvm: <%= exclude['rvm'] %>
+<%     exclude.keys.sort.each do |k| -%>
+<%       next if k == 'rvm' -%>
+    <%= k %>: <%= exclude[k] %>
+<%     end -%>
+<%   end -%>
+<% end -%>
   include:
 <% if @configs['docker_sets'] -%>
 <%   @configs['docker_sets'].each do |set| -%>
@@ -40,15 +56,17 @@ matrix:
   - rvm: <%= job['rvm'] %>
 <%     job.keys.sort.each do |k| -%>
 <%     next if k == 'rvm' -%>
-    <%= k %>: <%= job[k].gsub(/@@SET@@/, set['set']) %>
+    <%= k %>: <%= job[k].gsub(/@@SET@@/, set['set']).gsub(/@@TESTMODE@@/, set['testmode']) %>
 <%     end -%>
 <%   end -%>
 <% end -%>
-<% @configs['includes'].each do |include| -%>
+<%- if @configs.has_key?('includes') -%>
+  <% @configs['includes'].each do |include| -%>
   - rvm: <%= include['rvm'] %>
-<%   include.keys.sort.each do |k| -%>
-<%     next if k == 'rvm' -%>
+<%     include.keys.sort.each do |k| -%>
+<%       next if k == 'rvm' -%>
     <%= k %>: <%= include[k] %>
+<%     end -%>
 <%   end -%>
 <% end -%>
 <% if @configs['extras'] -%>

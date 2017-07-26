@@ -1,6 +1,7 @@
 ---
 git_base: 'git@github.com:'
 namespace: icann-dns
+#namespace: b4ldr
 #branch: modulesync
 message: "Update from icann_dns modulesync_config"
 ...

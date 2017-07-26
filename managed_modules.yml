@@ -1,5 +1,7 @@
 ---
+- puppet-speedtest
 - dell_info
+- puppet-ssh
 - puppet-softhsm
 - puppet-opendnssec
 - puppet-knot

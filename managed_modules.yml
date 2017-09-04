@@ -1,4 +1,6 @@
 ---
+- puppet-openbgpd
+- puppet-quagga
 - puppet-speedtest
 - dell_info
 - puppet-ssh

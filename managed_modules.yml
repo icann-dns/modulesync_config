@@ -1,4 +1,7 @@
 ---
+- puppet-rrsync
+- puppet-webapp
+- puppet-routing
 - puppet-openbgpd
 - puppet-quagga
 - puppet-speedtest

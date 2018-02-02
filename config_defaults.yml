@@ -103,7 +103,6 @@ Gemfile:
       - gem: beaker-testmode_switcher
       - gem: beaker-pe
       - gem: beaker-answers
-      - gem: vagrant-wrapper
 Rakefile:
   default_disabled_lint_checks:
   - 'relative'

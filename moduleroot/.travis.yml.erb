@@ -2,7 +2,7 @@
 sudo: false
 dist: trusty
 language: ruby
-cache: bundler
+#cache: bundler
 bundler_args: --without <%- unless @configs.fetch('install_system_tests', false ) -%>system_tests <%- end -%>development
 <%- if !@configs.nil? and @configs.has_key?('addons') -%>
 addons:

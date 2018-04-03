@@ -1,4 +1,5 @@
 ---
+- abstractit-icinga
 - puppet-rrsync
 - puppet-webapp
 - puppet-routing

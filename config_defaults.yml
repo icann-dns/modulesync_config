@@ -37,6 +37,7 @@ Rakefile:
   # config.tag_pattern: 'v%s'
 .puppet-lint.rc:
   enabled_lint_checks: []
+  disabled_lint_checks: []
 spec/default_facts.yml:
   delete: true
 spec/classes/coverage_spec.rb:

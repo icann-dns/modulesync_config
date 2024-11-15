@@ -16,7 +16,7 @@ Gemfile:
   required:
     ':test':
       - gem: voxpupuli-test
-        version: '~> 9.0'
+        version: '~> 7.0'
       - gem: coveralls
       - gem: simplecov-console
       - gem: puppet_metadata
@@ -36,9 +36,6 @@ Rakefile:
   # config.project: PROJECT
   # config.tag_pattern: 'v%s'
 .puppet-lint.rc:
-  disabled_lint_checks:
-    - parameter_documentation
-    - parameter_types
   enabled_lint_checks: []
 spec/default_facts.yml:
   delete: true
@@ -125,7 +122,7 @@ CONTRIBUTING.md:
 .yardopts:
   delete: true
 .gitlab-ci.yml:
-  delete: true
+  delete: false
 .pdkignore:
   delete: true
 appveyor.yml:

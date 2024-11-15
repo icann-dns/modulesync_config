@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 - puppet-allknowingdns
 - puppet-alternatives
 - puppet-amanda
@@ -169,23 +170,5 @@
 - puppet-tuned
 - puppet-unattended_upgrades
 - puppet-unbound
-- puppet-varnish
-- puppet-vault
-- puppet-vault_lookup
-- puppet-virtualbox
-- puppet-wildfly
-- puppet-windows_firewall
-- puppet-windowsfeature
-- puppet-winlogbeat
-- puppet-wireguard
-- puppet-xmlfile
-- puppet-yum
-- puppet-zabbix
-- puppet-zram_generator
-- puppet-zypprepo
-- puppet-icinga
-- puppet-icinga2
-- puppet-icingadb
-- puppet-icingaweb2
-...
-# vim: syntax=yaml
+- puppet-ansible
+- puppet-posfix

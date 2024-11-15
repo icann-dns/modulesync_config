@@ -1,5 +1,4 @@
 ---
 # vim: syntax=yaml
-=======
 - puppet-ansible
-- puppet-posfix
+- puppet-postfix

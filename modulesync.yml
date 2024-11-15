@@ -1,6 +1,6 @@
 ---
 git_base: 'git@github.com:'
-namespace: voxpupuli
+namespace: icann-dns
 branch: modulesync
 message: "Update from voxpupuli modulesync_config"
 ...

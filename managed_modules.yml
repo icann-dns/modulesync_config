@@ -1,3 +1,2 @@
 ---
-- puppet-ansible
-- puppet-postfix
+- puppet-firewall

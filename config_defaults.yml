@@ -21,6 +21,8 @@ Gemfile:
       - gem: simplecov-console
       - gem: puppet_metadata
         version: '~> 4.0'
+      - gem: ffi
+        version: '~> 1.17'
     ':development':
       - gem: guard-rake
       - gem: overcommit
@@ -122,8 +124,6 @@ CONTRIBUTING.md:
   delete: true
 .yardopts:
   delete: true
-.gitlab-ci.yml:
-  delete: false
 .pdkignore:
   delete: true
 appveyor.yml:

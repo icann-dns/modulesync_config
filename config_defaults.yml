@@ -22,7 +22,7 @@ Gemfile:
       - gem: puppet_metadata
         version: '~> 4.0'
       - gem: ffi
-        version: '~> 1.17'
+        version: '~> 1.16.0'
     ':development':
       - gem: guard-rake
       - gem: overcommit

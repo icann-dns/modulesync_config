@@ -1,4 +1,11 @@
 ---
 # vim: syntax=yaml
 - puppet-ansible
+- puppet-atlas_exporter
+- puppet-apparmor
+- puppet-git
+- puppet-opendnssec
+- puppet-manycast
 - puppet-postfix
+- puppet-quagga
+- puppet-tinyproxy

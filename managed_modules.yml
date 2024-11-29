@@ -1,2 +1,10 @@
 ---
+- puppet-datastore
 - puppet-firewall
+- puppet-knot
+- puppet-network
+- puppet-nsd
+- puppet-mirror
+- puppet-icann_custom
+- puppet-users
+- puppet-wombat

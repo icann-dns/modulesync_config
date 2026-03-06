@@ -32,6 +32,8 @@ Gemfile:
     ':test':
       - gem: voxpupuli-test
         version: '~> 14.0'
+      - gem: coveralls
+      - gem: simplecov-console
       - gem: puppet_metadata
         version: '~> 6.4'
     ':development':

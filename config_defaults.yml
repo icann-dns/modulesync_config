@@ -36,6 +36,8 @@ Gemfile:
       - gem: simplecov-console
       - gem: puppet_metadata
         version: '~> 6.4'
+      - gem: openssl
+        version: '~> 3.3.0'
     ':development':
       - gem: guard-rake
       - gem: overcommit

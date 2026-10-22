@@ -7,6 +7,7 @@
 - puppet-clickhouse
 - puppet-config_editor
 - puppet-datastore
+- puppet-debian
 - puppet-dns
 - puppet-file_upload
 - puppet-firewall
@@ -33,3 +34,4 @@
 - puppet-zabbix_server
 - puppet-zone_monitor
 - puppet-zonedit
+- puppet-testing

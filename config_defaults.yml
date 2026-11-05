@@ -13,8 +13,8 @@
 .github/workflows/release_prep.yml:
   delete: true
 .github/workflows/prepare_release.yml:
-  git_name: pccibot
-  git_email: 12855858+pccibot@users.noreply.github.com
+  git_name: 'icann-dns-release-bot[bot]'
+  git_email: '352992185+icann-dns-release-bot[bot]@users.noreply.github.com'
 .github/workflows/create_tag.yml:
   git_name: pccibot
   git_email: 12855858+pccibot@users.noreply.github.com

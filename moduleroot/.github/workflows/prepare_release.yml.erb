@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   release_prep:
-    uses: 'voxpupuli/gha-puppet/.github/workflows/prepare_release.yml@v4'
+    uses: 'icann-dns/gha-puppet/.github/workflows/prepare_release.yml@v4-icann'
     with:
       version: ${{ github.event.inputs.version }}
 <%- unless @configs['with']&.has_key?('allowed_owner') -%>
@@ -25,8 +25,8 @@ jobs:
 <%- end -%>
       git_name: '<%= @configs['git_name'] %>'
       git_email: '<%= @configs['git_email'] %>'
+      app_client_id: '${{ vars.RELEASE_APP_CLIENT_ID }}'
     secrets:
       # Configure secrets here:
       #  https://docs.github.com/en/actions/security-guides/encrypted-secrets
-      github_pat: '${{ secrets.PCCI_PAT_RELEASE_PREP }}'
-      ssh_private_key: '${{ secrets.PCCI_SSH_PRIVATE_KEY }}'
+      app_private_key: '${{ secrets.RELEASE_APP_PRIVATE_KEY }}'
